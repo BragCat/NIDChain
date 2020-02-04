@@ -2,7 +2,9 @@ pragma experimental ABIEncoderV2;
 
 pragma solidity >0.4.23 <0.7.0;
 
-contract NIDOrganization {
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+
+contract NIDOrganization is Ownable {
     // organization's name, example: Tsinghua University
     string public name;
 
@@ -15,21 +17,13 @@ contract NIDOrganization {
 
     event KeyUpdated(uint256 indexed index, string key, uint256 timestamp);
 
-    constructor(string memory _name) public {
+    constructor(string memory _name, address _admin) public {
         name = _name;
+        _transferOwnership(_admin);
     }
 
     function getNewestKey() view public returns(string memory) {
         return _keyHistory[_keyHistory.length - 1].key;
-    }
-
-    function updateKey(string memory newKey) public {
-        KeyLife memory newKeyLife = KeyLife({
-            key: newKey,
-            timestamp: block.timestamp
-            });
-        _keyHistory.push(newKeyLife);
-        emit KeyUpdated(_keyHistory.length, newKeyLife.key, newKeyLife.timestamp);
     }
 
     function getKeyHistory() view public returns(KeyLife[] memory keyHistory) {
@@ -45,4 +39,12 @@ contract NIDOrganization {
         return _keyHistory;
     }
 
+    function updateKey(string memory newKey) public onlyOwner {
+        KeyLife memory newKeyLife = KeyLife({
+            key: newKey,
+            timestamp: block.timestamp
+            });
+        _keyHistory.push(newKeyLife);
+        emit KeyUpdated(_keyHistory.length, newKeyLife.key, newKeyLife.timestamp);
+    }
 }
