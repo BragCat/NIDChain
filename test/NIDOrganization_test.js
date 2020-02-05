@@ -5,8 +5,9 @@ contract("NIDOrganization", accounts => {
     const name = "Tsinghua University";
     const admin = accounts[0];
     const notAdmin = accounts[1];
+
     describe("initialization", () => {
-        beforeEach (async () => {
+        beforeEach(async () => {
             NIDOrganization = await NIDOrganizationContract.new(name, admin);
         });
         it("gets the organization name", async () => {
@@ -15,7 +16,7 @@ contract("NIDOrganization", accounts => {
         });
     });
 
-    describe("update the key", () => {
+    describe("key management", () => {
         const firstKey = "abcd";
         const secondKey = "efghijklmn";
 
