@@ -2,8 +2,9 @@ const NIDAdminContract = artifacts.require("NIDAdmin");
 
 contract("NIDAdmin", accounts => {
     let NIDAdmin;
+    const admin = accounts[0];
     const name = "Tsinghua University";
-    const admin = accounts[1];
+    const applicant = accounts[1];
 
     describe("deployment", () => {
         beforeEach(async() => {
@@ -19,12 +20,32 @@ contract("NIDAdmin", accounts => {
             const currentCount = await NIDAdmin.getApplicationCount();
             const tx = await NIDAdmin.applyNIDOrganization(
                 name,
-                {from: admin}
+                {from: applicant}
             );
             const newCount = await NIDAdmin.getApplicationCount();
             const expectedEvent = "OrganizationApplied";
             const actualEvent = tx.logs[tx.logs.length - 1].event;
             assert.equal(newCount - currentCount, 1, "application count should increment by 1");
+            assert.equal(actualEvent, expectedEvent, "events should match");
+        });
+        it("throws an error when not called by applicant", async() => {
+            try {
+                const index = await NIDAdmin.getApplicationCount() - 1;
+                await NIDAdmin.withdrawNIDOrganizationApplication(index, {from: accounts[2]});
+                assert.fail("withdraw should not be permitted");
+            } catch(err) {
+                const expectedError = "Ownable: application withdrawal can only be requested by owner";
+                const actualError = err.reason;
+                assert.equal(actualError, expectedError, "errors should match");
+            }
+        });
+        it("withdraws the application when called by applicant", async() => {
+            const currentCount = await NIDAdmin.getApplicationCount();
+            const tx = await NIDAdmin.withdrawNIDOrganizationApplication(currentCount - 1, {from: applicant});
+            const newCount = await NIDAdmin.getApplicationCount();
+            const expectedEvent = "ApplicationWithdrawed";
+            const actualEvent = tx.logs[tx.logs.length - 1].event;
+            assert.equal(newCount - currentCount, -1, "application count should decrement by 1");
             assert.equal(actualEvent, expectedEvent, "events should match");
         });
     });
@@ -33,11 +54,11 @@ contract("NIDAdmin", accounts => {
         beforeEach(async() => {
             await NIDAdmin.applyNIDOrganization(
                 name,
-                {from: admin}
+                {from: applicant}
             );
             await NIDAdmin.applyNIDOrganization(
                 name,
-                {from: admin}
+                {from: applicant}
             );
         });
         it("throws an error when not called by admin", async() => {

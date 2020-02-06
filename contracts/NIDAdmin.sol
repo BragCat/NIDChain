@@ -8,6 +8,7 @@ contract NIDAdmin is Ownable {
     NIDOrganization[] private _organizations;
 
     event OrganizationApplied(uint256 indexed index, string indexed name, uint256 timestamp);
+    event ApplicationWithdrawed(uint256 indexed index, string indexed name, uint256 timestamp);
     event OrganizationDeleted(uint256 indexed index, string indexed name, uint256 timestamp);
     event ApplicationApproved(uint256 indexed index, string indexed name, uint256 timestamp);
     event ApplicationRejected(uint256 indexed index, string indexed name, uint256 timestamp);
@@ -16,14 +17,22 @@ contract NIDAdmin is Ownable {
 
     }
 
-    // used for each NID organization admin to apply for a new organization's joining
-    function applyNIDOrganization(string memory _name) public {
+    // used for each NID organization admin to apply for a new organization
+    function applyNIDOrganization(string memory name) public {
         NIDOrganization org = new NIDOrganization(
-            _name,
+            name,
             msg.sender
         );
         _applications.push(org);
-        emit OrganizationApplied(_applications.length - 1, _name, block.timestamp);
+        emit OrganizationApplied(_applications.length - 1, name, block.timestamp);
+    }
+
+    // used for each NID organization admin to withdraw the application for a new organization
+    function withdrawNIDOrganizationApplication(uint256 index) public {
+        NIDOrganization org = _applications[index];
+        require(org.owner() == msg.sender, "Ownable: application withdrawal can only be requested by owner");
+        removeApplication(index);
+        emit ApplicationWithdrawed(index, org.name(), block.timestamp);
     }
 
     // used for NID system admin to approve organization application
