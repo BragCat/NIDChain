@@ -200,14 +200,14 @@
     "absolutePath": "/Users/bragcat/Code/NIDChain/contracts/NIDOrganization.sol",
     "exportedSymbols": {
       "NIDOrganization": [
-        437
+        486
       ]
     },
-    "id": 438,
+    "id": 487,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 344,
+        "id": 393,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -216,7 +216,7 @@
         "src": "0:33:2"
       },
       {
-        "id": 345,
+        "id": 394,
         "literals": [
           "solidity",
           ">",
@@ -232,10 +232,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 346,
+        "id": 395,
         "nodeType": "ImportDirective",
-        "scope": 438,
-        "sourceUnit": 579,
+        "scope": 487,
+        "sourceUnit": 628,
         "src": "68:63:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -246,43 +246,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 347,
+              "id": 396,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 578,
+              "referencedDeclaration": 627,
               "src": "161:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$578",
+                "typeIdentifier": "t_contract$_Ownable_$627",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 348,
+            "id": 397,
             "nodeType": "InheritanceSpecifier",
             "src": "161:7:2"
           }
         ],
         "contractDependencies": [
-          464,
-          578
+          513,
+          627
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 437,
+        "id": 486,
         "linearizedBaseContracts": [
-          437,
-          578,
-          464
+          486,
+          627,
+          513
         ],
         "name": "NIDOrganization",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 350,
+            "id": 399,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 437,
+            "scope": 486,
             "src": "232:18:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -291,7 +291,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 349,
+              "id": 398,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "232:6:2",
@@ -305,14 +305,14 @@
           },
           {
             "canonicalName": "NIDOrganization.KeyLife",
-            "id": 355,
+            "id": 404,
             "members": [
               {
                 "constant": false,
-                "id": 352,
+                "id": 401,
                 "name": "key",
                 "nodeType": "VariableDeclaration",
-                "scope": 355,
+                "scope": 404,
                 "src": "380:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -321,7 +321,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 351,
+                  "id": 400,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "380:6:2",
@@ -335,10 +335,10 @@
               },
               {
                 "constant": false,
-                "id": 354,
+                "id": 403,
                 "name": "timestamp",
                 "nodeType": "VariableDeclaration",
-                "scope": 355,
+                "scope": 404,
                 "src": "400:17:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -347,7 +347,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 353,
+                  "id": 402,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "400:7:2",
@@ -362,42 +362,42 @@
             ],
             "name": "KeyLife",
             "nodeType": "StructDefinition",
-            "scope": 437,
+            "scope": 486,
             "src": "355:69:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 358,
+            "id": 407,
             "name": "_keyHistory",
             "nodeType": "VariableDeclaration",
-            "scope": 437,
+            "scope": 486,
             "src": "429:29:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
               "typeString": "struct NIDOrganization.KeyLife[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 356,
+                "id": 405,
                 "name": "KeyLife",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 355,
+                "referencedDeclaration": 404,
                 "src": "429:7:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_KeyLife_$355_storage_ptr",
+                  "typeIdentifier": "t_struct$_KeyLife_$404_storage_ptr",
                   "typeString": "struct NIDOrganization.KeyLife"
                 }
               },
-              "id": 357,
+              "id": 406,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "429:9:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage_ptr",
                 "typeString": "struct NIDOrganization.KeyLife[]"
               }
             },
@@ -407,20 +407,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 366,
+            "id": 415,
             "name": "KeyUpdated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 365,
+              "id": 414,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 360,
+                  "id": 409,
                   "indexed": true,
                   "name": "index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 366,
+                  "scope": 415,
                   "src": "482:21:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -429,7 +429,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 359,
+                    "id": 408,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "482:7:2",
@@ -443,11 +443,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 362,
+                  "id": 411,
                   "indexed": false,
                   "name": "key",
                   "nodeType": "VariableDeclaration",
-                  "scope": 366,
+                  "scope": 415,
                   "src": "505:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -456,7 +456,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 361,
+                    "id": 410,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "505:6:2",
@@ -470,11 +470,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 364,
+                  "id": 413,
                   "indexed": false,
                   "name": "timestamp",
                   "nodeType": "VariableDeclaration",
-                  "scope": 366,
+                  "scope": 415,
                   "src": "517:17:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -483,7 +483,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 363,
+                    "id": 412,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "517:7:2",
@@ -502,25 +502,25 @@
           },
           {
             "body": {
-              "id": 381,
+              "id": 430,
               "nodeType": "Block",
               "src": "598:65:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 375,
+                    "id": 424,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 373,
+                      "id": 422,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 350,
+                      "referencedDeclaration": 399,
                       "src": "608:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -531,11 +531,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 374,
+                      "id": 423,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 368,
+                      "referencedDeclaration": 417,
                       "src": "615:5:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -548,7 +548,7 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 376,
+                  "id": 425,
                   "nodeType": "ExpressionStatement",
                   "src": "608:12:2"
                 },
@@ -558,11 +558,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 378,
+                        "id": 427,
                         "name": "_admin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 370,
+                        "referencedDeclaration": 419,
                         "src": "649:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -577,18 +577,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 377,
+                      "id": 426,
                       "name": "_transferOwnership",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 577,
+                      "referencedDeclaration": 626,
                       "src": "630:18:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 379,
+                    "id": 428,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -602,29 +602,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 380,
+                  "id": 429,
                   "nodeType": "ExpressionStatement",
                   "src": "630:26:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 382,
+            "id": 431,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 371,
+              "id": 420,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 368,
+                  "id": 417,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 431,
                   "src": "554:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -633,7 +633,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 367,
+                    "id": 416,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "554:6:2",
@@ -647,10 +647,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 370,
+                  "id": 419,
                   "name": "_admin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 431,
                   "src": "575:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -659,7 +659,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 369,
+                    "id": 418,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "575:7:2",
@@ -676,12 +676,12 @@
               "src": "553:37:2"
             },
             "returnParameters": {
-              "id": 372,
+              "id": 421,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "598:0:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "542:121:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -689,7 +689,7 @@
           },
           {
             "body": {
-              "id": 395,
+              "id": 444,
               "nodeType": "Block",
               "src": "728:63:2",
               "statements": [
@@ -700,25 +700,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 387,
+                        "id": 436,
                         "name": "_keyHistory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 358,
+                        "referencedDeclaration": 407,
                         "src": "745:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                           "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                         }
                       },
-                      "id": 392,
+                      "id": 441,
                       "indexExpression": {
                         "argumentTypes": null,
                         "commonType": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 391,
+                        "id": 440,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -727,18 +727,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 388,
+                            "id": 437,
                             "name": "_keyHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 358,
+                            "referencedDeclaration": 407,
                             "src": "757:11:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                               "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                             }
                           },
-                          "id": 389,
+                          "id": 438,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -757,7 +757,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 390,
+                          "id": 439,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -785,54 +785,54 @@
                       "nodeType": "IndexAccess",
                       "src": "745:35:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KeyLife_$355_storage",
+                        "typeIdentifier": "t_struct$_KeyLife_$404_storage",
                         "typeString": "struct NIDOrganization.KeyLife storage ref"
                       }
                     },
-                    "id": 393,
+                    "id": 442,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "key",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 352,
+                    "referencedDeclaration": 401,
                     "src": "745:39:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 386,
-                  "id": 394,
+                  "functionReturnParameters": 435,
+                  "id": 443,
                   "nodeType": "Return",
                   "src": "738:46:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 396,
+            "id": 445,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getNewestKey",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 383,
+              "id": 432,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "690:2:2"
             },
             "returnParameters": {
-              "id": 386,
+              "id": 435,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 385,
+                  "id": 434,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 396,
+                  "scope": 445,
                   "src": "713:13:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -841,7 +841,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 384,
+                    "id": 433,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "713:6:2",
@@ -856,7 +856,7 @@
               ],
               "src": "712:15:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "669:122:2",
             "stateMutability": "view",
             "superFunction": null,
@@ -864,80 +864,80 @@
           },
           {
             "body": {
-              "id": 404,
+              "id": 453,
               "nodeType": "Block",
               "src": "871:466:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 402,
+                    "id": 451,
                     "name": "_keyHistory",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 358,
+                    "referencedDeclaration": 407,
                     "src": "1319:11:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                       "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 401,
-                  "id": 403,
+                  "functionReturnParameters": 450,
+                  "id": 452,
                   "nodeType": "Return",
                   "src": "1312:18:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 405,
+            "id": 454,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getKeyHistory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 397,
+              "id": 446,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "819:2:2"
             },
             "returnParameters": {
-              "id": 401,
+              "id": 450,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 400,
+                  "id": 449,
                   "name": "keyHistory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 405,
+                  "scope": 454,
                   "src": "842:27:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_memory_$dyn_memory_ptr",
                     "typeString": "struct NIDOrganization.KeyLife[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 398,
+                      "id": 447,
                       "name": "KeyLife",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 355,
+                      "referencedDeclaration": 404,
                       "src": "842:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KeyLife_$355_storage_ptr",
+                        "typeIdentifier": "t_struct$_KeyLife_$404_storage_ptr",
                         "typeString": "struct NIDOrganization.KeyLife"
                       }
                     },
-                    "id": 399,
+                    "id": 448,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "842:9:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage_ptr",
                       "typeString": "struct NIDOrganization.KeyLife[]"
                     }
                   },
@@ -947,7 +947,7 @@
               ],
               "src": "841:29:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "797:540:2",
             "stateMutability": "view",
             "superFunction": null,
@@ -955,37 +955,37 @@
           },
           {
             "body": {
-              "id": 435,
+              "id": 484,
               "nodeType": "Block",
               "src": "1401:254:2",
               "statements": [
                 {
                   "assignments": [
-                    413
+                    462
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 413,
+                      "id": 462,
                       "name": "newKeyLife",
                       "nodeType": "VariableDeclaration",
-                      "scope": 435,
+                      "scope": 484,
                       "src": "1411:25:2",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                        "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                         "typeString": "struct NIDOrganization.KeyLife"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 412,
+                        "id": 461,
                         "name": "KeyLife",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 355,
+                        "referencedDeclaration": 404,
                         "src": "1411:7:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_KeyLife_$355_storage_ptr",
+                          "typeIdentifier": "t_struct$_KeyLife_$404_storage_ptr",
                           "typeString": "struct NIDOrganization.KeyLife"
                         }
                       },
@@ -993,17 +993,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 419,
+                  "id": 468,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 415,
+                        "id": 464,
                         "name": "newKey",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 407,
+                        "referencedDeclaration": 456,
                         "src": "1466:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1014,18 +1014,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 416,
+                          "id": 465,
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 583,
+                          "referencedDeclaration": 632,
                           "src": "1497:5:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
                             "typeString": "block"
                           }
                         },
-                        "id": 417,
+                        "id": 466,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1051,18 +1051,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 414,
+                      "id": 463,
                       "name": "KeyLife",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 355,
+                      "referencedDeclaration": 404,
                       "src": "1439:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_KeyLife_$355_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_KeyLife_$404_storage_ptr_$",
                         "typeString": "type(struct NIDOrganization.KeyLife storage pointer)"
                       }
                     },
-                    "id": 418,
+                    "id": 467,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1075,7 +1075,7 @@
                     "nodeType": "FunctionCall",
                     "src": "1439:88:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_KeyLife_$355_memory",
+                      "typeIdentifier": "t_struct$_KeyLife_$404_memory",
                       "typeString": "struct NIDOrganization.KeyLife memory"
                     }
                   },
@@ -1088,14 +1088,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 423,
+                        "id": 472,
                         "name": "newKeyLife",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 413,
+                        "referencedDeclaration": 462,
                         "src": "1554:10:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                          "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                           "typeString": "struct NIDOrganization.KeyLife memory"
                         }
                       }
@@ -1103,24 +1103,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                          "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                           "typeString": "struct NIDOrganization.KeyLife memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 420,
+                        "id": 469,
                         "name": "_keyHistory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 358,
+                        "referencedDeclaration": 407,
                         "src": "1537:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                           "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                         }
                       },
-                      "id": 422,
+                      "id": 471,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1130,11 +1130,11 @@
                       "referencedDeclaration": null,
                       "src": "1537:16:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_KeyLife_$355_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_KeyLife_$404_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct NIDOrganization.KeyLife storage ref) returns (uint256)"
                       }
                     },
-                    "id": 424,
+                    "id": 473,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1148,7 +1148,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 425,
+                  "id": 474,
                   "nodeType": "ExpressionStatement",
                   "src": "1537:28:2"
                 },
@@ -1160,18 +1160,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 427,
+                          "id": 476,
                           "name": "_keyHistory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 358,
+                          "referencedDeclaration": 407,
                           "src": "1591:11:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                             "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                           }
                         },
-                        "id": 428,
+                        "id": 477,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -1189,25 +1189,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 429,
+                          "id": 478,
                           "name": "newKeyLife",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 413,
+                          "referencedDeclaration": 462,
                           "src": "1611:10:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                            "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                             "typeString": "struct NIDOrganization.KeyLife memory"
                           }
                         },
-                        "id": 430,
+                        "id": 479,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "key",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 352,
+                        "referencedDeclaration": 401,
                         "src": "1611:14:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory",
@@ -1218,25 +1218,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 431,
+                          "id": 480,
                           "name": "newKeyLife",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 413,
+                          "referencedDeclaration": 462,
                           "src": "1627:10:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                            "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                             "typeString": "struct NIDOrganization.KeyLife memory"
                           }
                         },
-                        "id": 432,
+                        "id": 481,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "timestamp",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 354,
+                        "referencedDeclaration": 403,
                         "src": "1627:20:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1259,18 +1259,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 426,
+                      "id": 475,
                       "name": "KeyUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 366,
+                      "referencedDeclaration": 415,
                       "src": "1580:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
                         "typeString": "function (uint256,string memory,uint256)"
                       }
                     },
-                    "id": 433,
+                    "id": 482,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1284,27 +1284,27 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 434,
+                  "id": 483,
                   "nodeType": "EmitStatement",
                   "src": "1575:73:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 436,
+            "id": 485,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 410,
+                "id": 459,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 409,
+                  "id": 458,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 511,
+                  "referencedDeclaration": 560,
                   "src": "1391:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1318,15 +1318,15 @@
             "name": "updateKey",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 408,
+              "id": 457,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 407,
+                  "id": 456,
                   "name": "newKey",
                   "nodeType": "VariableDeclaration",
-                  "scope": 436,
+                  "scope": 485,
                   "src": "1362:20:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1335,7 +1335,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 406,
+                    "id": 455,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1362:6:2",
@@ -1351,19 +1351,19 @@
               "src": "1361:22:2"
             },
             "returnParameters": {
-              "id": 411,
+              "id": 460,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1401:0:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "1343:312:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 438,
+        "scope": 487,
         "src": "133:1524:2"
       }
     ],
@@ -1373,14 +1373,14 @@
     "absolutePath": "/Users/bragcat/Code/NIDChain/contracts/NIDOrganization.sol",
     "exportedSymbols": {
       "NIDOrganization": [
-        437
+        486
       ]
     },
-    "id": 438,
+    "id": 487,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 344,
+        "id": 393,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1389,7 +1389,7 @@
         "src": "0:33:2"
       },
       {
-        "id": 345,
+        "id": 394,
         "literals": [
           "solidity",
           ">",
@@ -1405,10 +1405,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 346,
+        "id": 395,
         "nodeType": "ImportDirective",
-        "scope": 438,
-        "sourceUnit": 579,
+        "scope": 487,
+        "sourceUnit": 628,
         "src": "68:63:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1419,43 +1419,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 347,
+              "id": 396,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 578,
+              "referencedDeclaration": 627,
               "src": "161:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$578",
+                "typeIdentifier": "t_contract$_Ownable_$627",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 348,
+            "id": 397,
             "nodeType": "InheritanceSpecifier",
             "src": "161:7:2"
           }
         ],
         "contractDependencies": [
-          464,
-          578
+          513,
+          627
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 437,
+        "id": 486,
         "linearizedBaseContracts": [
-          437,
-          578,
-          464
+          486,
+          627,
+          513
         ],
         "name": "NIDOrganization",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 350,
+            "id": 399,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 437,
+            "scope": 486,
             "src": "232:18:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1464,7 +1464,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 349,
+              "id": 398,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "232:6:2",
@@ -1478,14 +1478,14 @@
           },
           {
             "canonicalName": "NIDOrganization.KeyLife",
-            "id": 355,
+            "id": 404,
             "members": [
               {
                 "constant": false,
-                "id": 352,
+                "id": 401,
                 "name": "key",
                 "nodeType": "VariableDeclaration",
-                "scope": 355,
+                "scope": 404,
                 "src": "380:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1494,7 +1494,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 351,
+                  "id": 400,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "380:6:2",
@@ -1508,10 +1508,10 @@
               },
               {
                 "constant": false,
-                "id": 354,
+                "id": 403,
                 "name": "timestamp",
                 "nodeType": "VariableDeclaration",
-                "scope": 355,
+                "scope": 404,
                 "src": "400:17:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1520,7 +1520,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 353,
+                  "id": 402,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "400:7:2",
@@ -1535,42 +1535,42 @@
             ],
             "name": "KeyLife",
             "nodeType": "StructDefinition",
-            "scope": 437,
+            "scope": 486,
             "src": "355:69:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 358,
+            "id": 407,
             "name": "_keyHistory",
             "nodeType": "VariableDeclaration",
-            "scope": 437,
+            "scope": 486,
             "src": "429:29:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
               "typeString": "struct NIDOrganization.KeyLife[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 356,
+                "id": 405,
                 "name": "KeyLife",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 355,
+                "referencedDeclaration": 404,
                 "src": "429:7:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_KeyLife_$355_storage_ptr",
+                  "typeIdentifier": "t_struct$_KeyLife_$404_storage_ptr",
                   "typeString": "struct NIDOrganization.KeyLife"
                 }
               },
-              "id": 357,
+              "id": 406,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "429:9:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage_ptr",
                 "typeString": "struct NIDOrganization.KeyLife[]"
               }
             },
@@ -1580,20 +1580,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 366,
+            "id": 415,
             "name": "KeyUpdated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 365,
+              "id": 414,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 360,
+                  "id": 409,
                   "indexed": true,
                   "name": "index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 366,
+                  "scope": 415,
                   "src": "482:21:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1602,7 +1602,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 359,
+                    "id": 408,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "482:7:2",
@@ -1616,11 +1616,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 362,
+                  "id": 411,
                   "indexed": false,
                   "name": "key",
                   "nodeType": "VariableDeclaration",
-                  "scope": 366,
+                  "scope": 415,
                   "src": "505:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1629,7 +1629,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 361,
+                    "id": 410,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "505:6:2",
@@ -1643,11 +1643,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 364,
+                  "id": 413,
                   "indexed": false,
                   "name": "timestamp",
                   "nodeType": "VariableDeclaration",
-                  "scope": 366,
+                  "scope": 415,
                   "src": "517:17:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1656,7 +1656,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 363,
+                    "id": 412,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "517:7:2",
@@ -1675,25 +1675,25 @@
           },
           {
             "body": {
-              "id": 381,
+              "id": 430,
               "nodeType": "Block",
               "src": "598:65:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 375,
+                    "id": 424,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 373,
+                      "id": 422,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 350,
+                      "referencedDeclaration": 399,
                       "src": "608:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1704,11 +1704,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 374,
+                      "id": 423,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 368,
+                      "referencedDeclaration": 417,
                       "src": "615:5:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -1721,7 +1721,7 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 376,
+                  "id": 425,
                   "nodeType": "ExpressionStatement",
                   "src": "608:12:2"
                 },
@@ -1731,11 +1731,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 378,
+                        "id": 427,
                         "name": "_admin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 370,
+                        "referencedDeclaration": 419,
                         "src": "649:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1750,18 +1750,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 377,
+                      "id": 426,
                       "name": "_transferOwnership",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 577,
+                      "referencedDeclaration": 626,
                       "src": "630:18:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 379,
+                    "id": 428,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1775,29 +1775,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 380,
+                  "id": 429,
                   "nodeType": "ExpressionStatement",
                   "src": "630:26:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 382,
+            "id": 431,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 371,
+              "id": 420,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 368,
+                  "id": 417,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 431,
                   "src": "554:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1806,7 +1806,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 367,
+                    "id": 416,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "554:6:2",
@@ -1820,10 +1820,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 370,
+                  "id": 419,
                   "name": "_admin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 431,
                   "src": "575:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1832,7 +1832,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 369,
+                    "id": 418,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "575:7:2",
@@ -1849,12 +1849,12 @@
               "src": "553:37:2"
             },
             "returnParameters": {
-              "id": 372,
+              "id": 421,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "598:0:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "542:121:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1862,7 +1862,7 @@
           },
           {
             "body": {
-              "id": 395,
+              "id": 444,
               "nodeType": "Block",
               "src": "728:63:2",
               "statements": [
@@ -1873,25 +1873,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 387,
+                        "id": 436,
                         "name": "_keyHistory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 358,
+                        "referencedDeclaration": 407,
                         "src": "745:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                           "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                         }
                       },
-                      "id": 392,
+                      "id": 441,
                       "indexExpression": {
                         "argumentTypes": null,
                         "commonType": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 391,
+                        "id": 440,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1900,18 +1900,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 388,
+                            "id": 437,
                             "name": "_keyHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 358,
+                            "referencedDeclaration": 407,
                             "src": "757:11:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                               "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                             }
                           },
-                          "id": 389,
+                          "id": 438,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -1930,7 +1930,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 390,
+                          "id": 439,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1958,54 +1958,54 @@
                       "nodeType": "IndexAccess",
                       "src": "745:35:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KeyLife_$355_storage",
+                        "typeIdentifier": "t_struct$_KeyLife_$404_storage",
                         "typeString": "struct NIDOrganization.KeyLife storage ref"
                       }
                     },
-                    "id": 393,
+                    "id": 442,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "key",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 352,
+                    "referencedDeclaration": 401,
                     "src": "745:39:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 386,
-                  "id": 394,
+                  "functionReturnParameters": 435,
+                  "id": 443,
                   "nodeType": "Return",
                   "src": "738:46:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 396,
+            "id": 445,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getNewestKey",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 383,
+              "id": 432,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "690:2:2"
             },
             "returnParameters": {
-              "id": 386,
+              "id": 435,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 385,
+                  "id": 434,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 396,
+                  "scope": 445,
                   "src": "713:13:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2014,7 +2014,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 384,
+                    "id": 433,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "713:6:2",
@@ -2029,7 +2029,7 @@
               ],
               "src": "712:15:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "669:122:2",
             "stateMutability": "view",
             "superFunction": null,
@@ -2037,80 +2037,80 @@
           },
           {
             "body": {
-              "id": 404,
+              "id": 453,
               "nodeType": "Block",
               "src": "871:466:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 402,
+                    "id": 451,
                     "name": "_keyHistory",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 358,
+                    "referencedDeclaration": 407,
                     "src": "1319:11:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                       "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 401,
-                  "id": 403,
+                  "functionReturnParameters": 450,
+                  "id": 452,
                   "nodeType": "Return",
                   "src": "1312:18:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 405,
+            "id": 454,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getKeyHistory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 397,
+              "id": 446,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "819:2:2"
             },
             "returnParameters": {
-              "id": 401,
+              "id": 450,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 400,
+                  "id": 449,
                   "name": "keyHistory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 405,
+                  "scope": 454,
                   "src": "842:27:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_memory_$dyn_memory_ptr",
                     "typeString": "struct NIDOrganization.KeyLife[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 398,
+                      "id": 447,
                       "name": "KeyLife",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 355,
+                      "referencedDeclaration": 404,
                       "src": "842:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KeyLife_$355_storage_ptr",
+                        "typeIdentifier": "t_struct$_KeyLife_$404_storage_ptr",
                         "typeString": "struct NIDOrganization.KeyLife"
                       }
                     },
-                    "id": 399,
+                    "id": 448,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "842:9:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage_ptr",
                       "typeString": "struct NIDOrganization.KeyLife[]"
                     }
                   },
@@ -2120,7 +2120,7 @@
               ],
               "src": "841:29:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "797:540:2",
             "stateMutability": "view",
             "superFunction": null,
@@ -2128,37 +2128,37 @@
           },
           {
             "body": {
-              "id": 435,
+              "id": 484,
               "nodeType": "Block",
               "src": "1401:254:2",
               "statements": [
                 {
                   "assignments": [
-                    413
+                    462
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 413,
+                      "id": 462,
                       "name": "newKeyLife",
                       "nodeType": "VariableDeclaration",
-                      "scope": 435,
+                      "scope": 484,
                       "src": "1411:25:2",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                        "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                         "typeString": "struct NIDOrganization.KeyLife"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 412,
+                        "id": 461,
                         "name": "KeyLife",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 355,
+                        "referencedDeclaration": 404,
                         "src": "1411:7:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_KeyLife_$355_storage_ptr",
+                          "typeIdentifier": "t_struct$_KeyLife_$404_storage_ptr",
                           "typeString": "struct NIDOrganization.KeyLife"
                         }
                       },
@@ -2166,17 +2166,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 419,
+                  "id": 468,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 415,
+                        "id": 464,
                         "name": "newKey",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 407,
+                        "referencedDeclaration": 456,
                         "src": "1466:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -2187,18 +2187,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 416,
+                          "id": 465,
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 583,
+                          "referencedDeclaration": 632,
                           "src": "1497:5:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
                             "typeString": "block"
                           }
                         },
-                        "id": 417,
+                        "id": 466,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2224,18 +2224,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 414,
+                      "id": 463,
                       "name": "KeyLife",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 355,
+                      "referencedDeclaration": 404,
                       "src": "1439:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_KeyLife_$355_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_KeyLife_$404_storage_ptr_$",
                         "typeString": "type(struct NIDOrganization.KeyLife storage pointer)"
                       }
                     },
-                    "id": 418,
+                    "id": 467,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2248,7 +2248,7 @@
                     "nodeType": "FunctionCall",
                     "src": "1439:88:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_KeyLife_$355_memory",
+                      "typeIdentifier": "t_struct$_KeyLife_$404_memory",
                       "typeString": "struct NIDOrganization.KeyLife memory"
                     }
                   },
@@ -2261,14 +2261,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 423,
+                        "id": 472,
                         "name": "newKeyLife",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 413,
+                        "referencedDeclaration": 462,
                         "src": "1554:10:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                          "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                           "typeString": "struct NIDOrganization.KeyLife memory"
                         }
                       }
@@ -2276,24 +2276,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                          "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                           "typeString": "struct NIDOrganization.KeyLife memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 420,
+                        "id": 469,
                         "name": "_keyHistory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 358,
+                        "referencedDeclaration": 407,
                         "src": "1537:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                           "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                         }
                       },
-                      "id": 422,
+                      "id": 471,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2303,11 +2303,11 @@
                       "referencedDeclaration": null,
                       "src": "1537:16:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_KeyLife_$355_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_KeyLife_$404_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct NIDOrganization.KeyLife storage ref) returns (uint256)"
                       }
                     },
-                    "id": 424,
+                    "id": 473,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2321,7 +2321,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 425,
+                  "id": 474,
                   "nodeType": "ExpressionStatement",
                   "src": "1537:28:2"
                 },
@@ -2333,18 +2333,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 427,
+                          "id": 476,
                           "name": "_keyHistory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 358,
+                          "referencedDeclaration": 407,
                           "src": "1591:11:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_KeyLife_$355_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_KeyLife_$404_storage_$dyn_storage",
                             "typeString": "struct NIDOrganization.KeyLife storage ref[] storage ref"
                           }
                         },
-                        "id": 428,
+                        "id": 477,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2362,25 +2362,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 429,
+                          "id": 478,
                           "name": "newKeyLife",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 413,
+                          "referencedDeclaration": 462,
                           "src": "1611:10:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                            "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                             "typeString": "struct NIDOrganization.KeyLife memory"
                           }
                         },
-                        "id": 430,
+                        "id": 479,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "key",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 352,
+                        "referencedDeclaration": 401,
                         "src": "1611:14:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory",
@@ -2391,25 +2391,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 431,
+                          "id": 480,
                           "name": "newKeyLife",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 413,
+                          "referencedDeclaration": 462,
                           "src": "1627:10:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_KeyLife_$355_memory_ptr",
+                            "typeIdentifier": "t_struct$_KeyLife_$404_memory_ptr",
                             "typeString": "struct NIDOrganization.KeyLife memory"
                           }
                         },
-                        "id": 432,
+                        "id": 481,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "timestamp",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 354,
+                        "referencedDeclaration": 403,
                         "src": "1627:20:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2432,18 +2432,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 426,
+                      "id": 475,
                       "name": "KeyUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 366,
+                      "referencedDeclaration": 415,
                       "src": "1580:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
                         "typeString": "function (uint256,string memory,uint256)"
                       }
                     },
-                    "id": 433,
+                    "id": 482,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2457,27 +2457,27 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 434,
+                  "id": 483,
                   "nodeType": "EmitStatement",
                   "src": "1575:73:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 436,
+            "id": 485,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 410,
+                "id": 459,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 409,
+                  "id": 458,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 511,
+                  "referencedDeclaration": 560,
                   "src": "1391:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2491,15 +2491,15 @@
             "name": "updateKey",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 408,
+              "id": 457,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 407,
+                  "id": 456,
                   "name": "newKey",
                   "nodeType": "VariableDeclaration",
-                  "scope": 436,
+                  "scope": 485,
                   "src": "1362:20:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2508,7 +2508,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 406,
+                    "id": 455,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1362:6:2",
@@ -2524,19 +2524,19 @@
               "src": "1361:22:2"
             },
             "returnParameters": {
-              "id": 411,
+              "id": 460,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1401:0:2"
             },
-            "scope": 437,
+            "scope": 486,
             "src": "1343:312:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 438,
+        "scope": 487,
         "src": "133:1524:2"
       }
     ],
@@ -2548,7 +2548,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.21",
-  "updatedAt": "2020-02-05T11:00:26.041Z",
+  "updatedAt": "2020-02-13T03:22:11.465Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

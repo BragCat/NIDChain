@@ -23,7 +23,7 @@ contract("NIDAdmin", accounts => {
                 {from: applicant}
             );
             const newCount = await NIDAdmin.getApplicationCount();
-            const expectedEvent = "OrganizationApplied";
+            const expectedEvent = "ApplicationSubmitted";
             const actualEvent = tx.logs[tx.logs.length - 1].event;
             assert.equal(newCount - currentCount, 1, "application count should increment by 1");
             assert.equal(actualEvent, expectedEvent, "events should match");
@@ -43,7 +43,7 @@ contract("NIDAdmin", accounts => {
             const currentCount = await NIDAdmin.getApplicationCount();
             const tx = await NIDAdmin.withdrawNIDOrganizationApplication(currentCount - 1, {from: applicant});
             const newCount = await NIDAdmin.getApplicationCount();
-            const expectedEvent = "ApplicationWithdrawed";
+            const expectedEvent = "ApplicationWithdrawn";
             const actualEvent = tx.logs[tx.logs.length - 1].event;
             assert.equal(newCount - currentCount, -1, "application count should decrement by 1");
             assert.equal(actualEvent, expectedEvent, "events should match");
