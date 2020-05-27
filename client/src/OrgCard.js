@@ -79,7 +79,7 @@ const OrgCard = (props) => {
         if (org) {
             init(org);
         }
-    }, [asInfo]);
+    }, [org]);
 
     const init = async (org) => {
         try {
@@ -131,7 +131,8 @@ const OrgCard = (props) => {
 
     const submitUpdate = async () => {
         try {
-            const effectTime = t.getTime() / 1000;
+            const t = new Date();
+            const effectTime = Math.round(t.getTime() / 1000);
             console.log(key);
             console.log(effectTime);
             await contract.methods.updateKey(
@@ -150,7 +151,7 @@ const OrgCard = (props) => {
     };
 
     return (
-        <div className="as-card-container">
+        <div className="org-card-container">
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>
                     更新密钥信息

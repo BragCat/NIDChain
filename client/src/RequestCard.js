@@ -22,7 +22,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TextField from '@material-ui/core/TextField';
 
-import ASInfoContract from "./contracts/ASInfo.json";
+import NIDOrgContract from "./contracts/NIDOrg.json";
 import Web3 from 'web3';
 
 import { Link } from 'react-router-dom';
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     },
     card: {
         width: 400,
-        height: 230
+        height: 300
     },
     media: {
         height: 140,
