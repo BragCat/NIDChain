@@ -35,6 +35,7 @@ const Request = (props) => {
     const [ mail, setMail ] = useState("");
     const [ nidAddr, setNidAddr ] = useState("");
     const [ nidPort, setNidPort ] = useState("");
+    const [ pool, setPool ] = useState("");
 
     useEffect(() => {
         document.title = "NIDChain组织变更";
@@ -51,6 +52,7 @@ const Request = (props) => {
             console.log(mail);
             console.log(nidAddr);
             console.log(nidPortValue);
+            console.log(pool);
             const tx = await contract.methods.createOrgRequest(
                 typeValue, 
                 name, 
@@ -59,6 +61,7 @@ const Request = (props) => {
                 mail,
                 nidAddr,
                 nidPortValue,
+                pool
             ).send({ 
                 from: accounts[0]
             });
@@ -152,6 +155,17 @@ const Request = (props) => {
                 label="NID管理服务器端口"
                 value={nidPort} 
                 onChange={(e) => {setNidPort(e.target.value)}}
+            >
+            </TextField>
+            </FormControl>
+            </div>
+            <div>
+            <FormControl className={classes.FormControl}>
+            <TextField 
+                required
+                label="组织IPv6地址池"
+                value={pool} 
+                onChange={(e) => {setPool(e.target.value)}}
             >
             </TextField>
             </FormControl>
