@@ -15,6 +15,9 @@ contract NIDAdmin is Ownable {
         string admin;
         string phone;
         string mail;
+        string nidAddr;
+        uint256 nidPort;
+        string pool;
     }
 
     OrgRequest[] private _reqs;
@@ -45,7 +48,10 @@ contract NIDAdmin is Ownable {
         string memory _name,
         string memory _admin,
         string memory _phone,
-        string memory _mail
+        string memory _mail,
+        string memory _nidAddr,
+        uint256 _nidPort,
+        string memory _pool
     )
         public
     {
@@ -57,7 +63,10 @@ contract NIDAdmin is Ownable {
             _name,
             _admin,
             _phone,
-            _mail
+            _mail,
+            _nidAddr,
+            _nidPort,
+            _pool
         );
         bool applied = false;
         for (uint256 i = 0; i < _reqs.length; ++i) {
@@ -78,7 +87,10 @@ contract NIDAdmin is Ownable {
         string memory name,
         string memory admin,
         string memory phone,
-        string memory mail
+        string memory mail,
+        string memory nidAddr,
+        uint256 nidPort,
+        string memory pool
     ) {
         for (uint256 i = 0; i < _reqs.length; ++i) {
             if (_reqs[i].id == id) {
@@ -87,7 +99,10 @@ contract NIDAdmin is Ownable {
                     _reqs[i].name,
                     _reqs[i].admin,
                     _reqs[i].phone,
-                    _reqs[i].mail
+                    _reqs[i].mail,
+                    _reqs[i].nidAddr,
+                    _reqs[i].nidPort,
+                    _reqs[i].pool
                 );
             }
         }
@@ -157,12 +172,27 @@ contract NIDAdmin is Ownable {
                 req.name,
                 req.admin,
                 req.phone,
-                req.mail
+                req.mail,
+                req.nidAddr,
+                req.nidPort,
+                req.pool
             );
             _orgs.push(org);
             emit OrgCreated(org, req.owner);
         } else if (req.reqType == 1) {
-
+            index = findIndexFromOrgs(req.id);
+            _orgs[index].updateOrg(
+                req.owner,
+                req.id,
+                req.name,
+                req.admin,
+                req.phone,
+                req.mail,
+                req.nidAddr,
+                req.nidPort,
+                req.pool
+            );
+            emit OrgUpdated(_orgs[index], req.owner);
         } else {
             index = findIndexFromOrgs(req.id);
             NIDOrg org = _orgs[index];

@@ -8,6 +8,9 @@ contract NIDOrg is Ownable {
     string public admin;
     string public phone;
     string public mail;
+    string public nidAddr;
+    uint256 public nidPort;
+    string public pool;
 
     // history of organization's IDEA key used for encrypting NID and timestamp into IPv6 address
     struct KeyLife {
@@ -16,7 +19,7 @@ contract NIDOrg is Ownable {
     }
     KeyLife[] private _keyHistory;
 
-    event KeyUpdated(uint256 indexed index, string key, uint256 timestamp);
+    event KeyUpdated(string key, uint256 timestamp);
 
     constructor(
         address _owner,
@@ -24,7 +27,24 @@ contract NIDOrg is Ownable {
         string memory _name,
         string memory _admin,
         string memory _phone,
-        string memory _mail
+        string memory _mail,
+        string memory _nidAddr,
+        uint256 _nidPort,
+        string memory _pool
+    ) public {
+        updateOrg(_owner, _id, _name, _admin, _phone, _mail, _nidAddr, _nidPort, _pool);
+    }
+
+    function updateOrg(
+        address _owner,
+        bytes20 _id,
+        string memory _name,
+        string memory _admin,
+        string memory _phone,
+        string memory _mail,
+        string memory _nidAddr,
+        uint256 _nidPort,
+        string memory _pool
     ) public {
         _transferOwnership(_owner);
         id = _id;
@@ -32,6 +52,9 @@ contract NIDOrg is Ownable {
         admin = _admin;
         phone = _phone;
         mail = _mail;
+        nidAddr = _nidAddr;
+        nidPort = _nidPort;
+        pool = _pool;
     }
 
     function getKeyHistoryCount() public view returns(uint256 count) {
@@ -57,6 +80,6 @@ contract NIDOrg is Ownable {
             timestamp: effectTime
         });
         _keyHistory.push(newKeyLife);
-        emit KeyUpdated(_keyHistory.length, newKeyLife.key, newKeyLife.timestamp);
+        emit KeyUpdated(newKeyLife.key, newKeyLife.timestamp);
     }
 }

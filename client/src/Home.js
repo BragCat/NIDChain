@@ -1,52 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import getWeb3 from "./getWeb3";
-import NIDAdminContract from "./contracts/NIDAdmin";
+import { makeStyles } from '@material-ui/core/styles';
 
-const Home = () => {
-    const [ web3, setWeb3 ] = useState(null);
-    const [ accounts, setAccounts ] = useState(null);
-    const [ contract, setContract ] = useState(null);
-    const [ organizations, setOrganizations ] = useState(null);
-    const [ applications, setApplications ] = useState(null);
+import OrgCard from './OrgCard.js';
 
-    /*
-    useEffect(() => {
-        init();
-    }, []);
-     */
+const useStyles = makeStyles(theme => ({
+    button: {
+        margin: theme.spacing(1),
+    },
+    input: {
+        display: 'none',
+    },
+}));
+
+
+const Home = (props) => {
+    const web3 = props.eth.web3;
+    const accounts = props.eth.accounts;
+    const contract = props.eth.contract; 
+
+    const [orgs, setOrgs] = useState([]);
+
+    const classes = useStyles();
 
     const init = async () => {
         try {
-            const web3 = await getWeb3();
-            const networkId = await web3.eth.net.getId();
-            const accounts = await web3.eth.getAccounts();
-            const deployedNetwork = NIDAdminContract.networks[networkId];
-            const instance = new web3.eth.Contract(
-                NIDAdminContract.abi,
-                deployedNetwork && deployedNetwork.address,
-            );
-
-            setWeb3(web3);
-            setAccounts(accounts);
-            setContract(instance);
-
-            //const organizations = await instance.methods.organizations(10, 0).call();
-            //const applications = await instance.methods.applications(10, 0).call();
-            //setOrganizations(organizations);
-            //setApplications(applications);
-        } catch(error) {
-            alert('Failed to load web3, accounts, or contract. Check console for details.');
-            console.error(error);
+            const orgs = await contract.methods.orgQuery().call();
+            console.log(orgs);
+            setOrgs(orgs);
+        } catch (error) {
+            alert("Call contract orgQuery failed!");
+            console.log(error);
         }
     };
+    
+    useEffect(() => {
+        document.title = "NIDChain组织查询";
+        init();
+    }, [])
 
-    init();
-    console.log(contract);
+    window.ethereum.on("accountsChanged", function (accounts) {
+        window.location.reload()
+    });
+
+    const displayOrgs = () => {
+        return orgs.map((org) => {
+            return (<OrgCard
+                eth = {props.eth}
+                org = {org}
+                key = {org}
+            />
+            );
+        });
+    };
 
     return (
-        <div><h2>Home</h2></div>
+        <div className="main-container">
+            {displayOrgs()}
+        </div>
     );
-};
+}
 
 export default Home;
