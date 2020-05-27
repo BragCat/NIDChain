@@ -1,115 +1,181 @@
-pragma solidity >0.4.23 <0.7.0;
+pragma solidity >=0.4.21 <0.7.0;
 
-import "./NIDOrganization.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
+import "./NIDOrg.sol";
+
+
 contract NIDAdmin is Ownable {
-    uint256 constant MAX_LIMIT = 20;
-    NIDOrganization[] private _applications;
-    NIDOrganization[] private _organizations;
 
-    event ApplicationSubmitted(uint256 indexed index, string indexed name, uint256 timestamp);
-    event ApplicationWithdrawn(uint256 indexed index, string indexed name, uint256 timestamp);
+    struct OrgRequest {
+        address owner;
+        bytes20 id;
+        uint256 reqType;
+        string name;
+        string admin;
+        string phone;
+        string mail;
+    }
 
-    event ApplicationApproved(uint256 indexed index, string indexed name, uint256 timestamp);
-    event ApplicationRejected(uint256 indexed index, string indexed name, uint256 timestamp);
-    event OrganizationDeleted(uint256 indexed index, string indexed name, uint256 timestamp);
+    OrgRequest[] private _reqs;
+    NIDOrg[] private _orgs;
+
+    // events
+    event OrgRequestSubmitted(uint256 indexed reqType, string indexed orgName, address indexed account);
+    event OrgRequestApproved(uint256 indexed reqType, string indexed orgName, address indexed account);
+    event OrgRequestRejected(uint256 indexed reqType, string indexed orgName, address indexed account);
+    event OrgCreated(NIDOrg indexed org, address indexed account);
+    event OrgUpdated(NIDOrg indexed org, address indexed account);
+    event OrgDeleted(NIDOrg indexed org, address indexed account);
 
     constructor() public {
-
+        _transferOwnership(msg.sender);
     }
 
-    // used for each NID organization admin to apply for a new organization
-    function applyNIDOrganization(string memory name) public {
-        NIDOrganization org = new NIDOrganization(
-            name,
-            msg.sender
+    function toBytes(address x) public pure returns (bytes20) {
+        bytes20 b;
+        for (uint i = 0; i < 20; i++) {
+            b |= bytes20(byte(uint8(uint256(x) / (2 ** (8 * (19 - i))))) & 0xFF) >> (i * 8);
+        }
+        return b;
+    }
+
+    function createOrgRequest(
+        uint256 _reqType,
+        string memory _name,
+        string memory _admin,
+        string memory _phone,
+        string memory _mail
+    )
+        public
+    {
+        bytes20 id = toBytes(msg.sender);
+        OrgRequest memory req = OrgRequest(
+            msg.sender,
+            id,
+            _reqType,
+            _name,
+            _admin,
+            _phone,
+            _mail
         );
-        _applications.push(org);
-        emit ApplicationSubmitted(_applications.length - 1, name, block.timestamp);
-    }
-
-    // used for each NID organization admin to withdraw the application for a new organization
-    function withdrawNIDOrganizationApplication(uint256 index) public {
-        NIDOrganization org = _applications[index];
-        require(org.owner() == msg.sender, "Ownable: application withdrawal can only be requested by owner");
-        removeApplication(index);
-        emit ApplicationWithdrawn(index, org.name(), block.timestamp);
-    }
-
-    // used for NID system admin to approve organization application
-    function approveNIDOrganizationApplication(uint256 index) public onlyOwner {
-        require(index < _applications.length);
-        NIDOrganization org = _applications[index];
-        _organizations.push(org);
-        removeApplication(index);
-        emit ApplicationApproved(index, org.name(), block.timestamp);
-    }
-
-    // used for NID system admin to reject organization application
-    function rejectNIDOrganizationApplication(uint256 index) public onlyOwner {
-        require(index < _applications.length, "out of application range");
-        string memory name = _applications[index].name();
-        removeApplication(index);
-        emit ApplicationRejected(index, name, block.timestamp);
-    }
-
-    // used for NID system admin to delete obsolete organizations
-    function deleteNIDOrganization(uint256 index) public onlyOwner{
-        require(index < _organizations.length, "out of organization range");
-        string memory name = _applications[index].name();
-        removeOrganization(index);
-        emit OrganizationDeleted(index, name, block.timestamp);
-    }
-
-    function getApplicationCount() public view returns(uint256) {
-        return _applications.length;
-    }
-
-    function getOrganizationCount() public view returns(uint256) {
-        return _organizations.length;
-    }
-
-    /*
-    function organizations(uint256 limit, uint256 offset) public view returns(NIDOrganization[] memory orgs) {
-        require(offset == 0 || offset < getOrganizationCount(), "offset out of bounds");
-        uint256 size = getOrganizationCount() - offset;
-        size = size < limit ? size : limit;
-        size = size < MAX_LIMIT ? size : MAX_LIMIT;
-        orgs = new NIDOrganization[](size);
-        for (uint256 i = 0; i < size; ++i) {
-            orgs[i] = _organizations[i + offset];
+        bool applied = false;
+        for (uint256 i = 0; i < _reqs.length; ++i) {
+            if (_reqs[i].id == id) {
+                _reqs[i] = req;
+                applied = true;
+                break;
+            }
         }
-        return orgs;
-    }
-
-    function applications(uint256 limit, uint256 offset) public view returns(NIDOrganization[] memory apps) {
-        require(offset == 0 || offset < getApplicationCount(), "offset out of bounds");
-        uint256 size = getApplicationCount() - offset;
-        size = size < limit ? size : limit;
-        size = size < MAX_LIMIT ? size : MAX_LIMIT;
-        apps = new NIDOrganization[](size);
-        for (uint256 i = 0; i < size; ++i) {
-            apps[i] = _applications[i + size];
+        if (!applied) {
+            _reqs.push(req);
         }
-        return apps;
+        emit OrgRequestSubmitted(_reqType, _name, msg.sender);
     }
-    */
 
-    function removeApplication(uint256 index) private {
-        for (uint256 i = index; i < _applications.length - 1; ++i) {
-            _applications[i] = _applications[i + 1];
+    function requestDetailQuery(bytes20 id) public view returns (
+        uint256 reqType,
+        string memory name,
+        string memory admin,
+        string memory phone,
+        string memory mail
+    ) {
+        for (uint256 i = 0; i < _reqs.length; ++i) {
+            if (_reqs[i].id == id) {
+                return (
+                    _reqs[i].reqType,
+                    _reqs[i].name,
+                    _reqs[i].admin,
+                    _reqs[i].phone,
+                    _reqs[i].mail
+                );
+            }
         }
-        delete _applications[_applications.length - 1];
-        --_applications.length;
+        assert(false);
     }
 
-    function removeOrganization(uint256 index) private {
-        for (uint256 i = index; i < _organizations.length - 1; ++i) {
-            _organizations[i] = _organizations[i + 1];
+    function requestIdsQuery() public view returns (bytes20[] memory ids) {
+        ids = new bytes20[](_reqs.length);
+        for (uint256 i = 0; i < _reqs.length; ++i) {
+            ids[i] = _reqs[i].id;
         }
-        delete _organizations[_organizations.length - 1];
-        --_organizations.length;
+        return ids;
     }
 
+    function requestCount() public view returns (uint256) {
+        return _reqs.length;
+    }
+
+    function orgQuery() public view returns (NIDOrg[] memory) {
+        return _orgs;
+    }
+
+    function orgCount() public view returns (uint256) {
+        return _orgs.length;
+    }
+
+    function findIndexFromReqs(bytes20 id) private view returns (uint256){
+        for (uint256 i = 0; i < _reqs.length; ++i) {
+            if (_reqs[i].id == id) {
+                return i;
+            }
+        }
+        assert(false);
+    }
+
+    function removeFromReqs(uint256 index) private {
+        for (uint256 i = index; i + 1 < _reqs.length; ++i) {
+            _reqs[i] = _reqs[i + 1];
+        }
+        _reqs.pop();
+    }
+
+    function findIndexFromOrgs(bytes20 id) private view returns (uint256){
+        for (uint256 i = 0; i < _orgs.length; ++i) {
+            if (_orgs[i].id() == id) {
+                return i;
+            }
+        }
+        assert(false);
+    }
+
+    function removeFromOrgs(uint256 index) private {
+        for (uint256 i = index; i + 1 < _orgs.length; ++i) {
+            _orgs[i] = _orgs[i + 1];
+        }
+        _orgs.pop();
+    }
+
+    function requestApprove(bytes20 id) public onlyOwner {
+        uint256 index = findIndexFromReqs(id);
+        OrgRequest memory req = _reqs[index];
+        removeFromReqs(index);
+        if (req.reqType == 0) {
+            NIDOrg org = new NIDOrg(
+                req.owner,
+                req.id,
+                req.name,
+                req.admin,
+                req.phone,
+                req.mail
+            );
+            _orgs.push(org);
+            emit OrgCreated(org, req.owner);
+        } else if (req.reqType == 1) {
+
+        } else {
+            index = findIndexFromOrgs(req.id);
+            NIDOrg org = _orgs[index];
+            removeFromOrgs(index);
+            emit OrgDeleted(org, req.owner);
+        }
+        emit OrgRequestApproved(req.reqType, req.name, req.owner);
+    }
+
+    function requestReject(bytes20 id) public onlyOwner {
+        uint256 index = findIndexFromReqs(id);
+        OrgRequest memory req = _reqs[index];
+        removeFromReqs(index);
+        emit OrgRequestRejected(req.reqType, req.name, req.owner);
+    }
 }

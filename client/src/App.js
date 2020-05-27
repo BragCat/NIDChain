@@ -13,7 +13,6 @@ import Home from "./Home";
 import getWeb3 from "./getWeb3";
 import "./App.css";
 
-
 const App = () => {
     const [state, setState] = useState({web3: null, accounts: null, contract: null});
 
