@@ -68,9 +68,9 @@ const RequestCard = (props) => {
     const accounts = props.eth.accounts;
     const contract = props.eth.contract;
     const id = props.request.id;
-    const typeValue = props.request.reqType == 0 ? 
+    const typeValue = props.request.reqType === 0 ? 
         "注册" : 
-        ( props.request.reqType == 1 ? 
+        ( props.request.reqType === 1 ? 
             "更新" :
             "删除"
         );
@@ -84,7 +84,7 @@ const RequestCard = (props) => {
     const classes = useStyles();
 
     window.ethereum.on('accountsChanged', function (accounts) {
-        window.location.reload()
+        window.location.reload();
     });
 
     const submitApprove = async () => {

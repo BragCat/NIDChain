@@ -12,6 +12,7 @@ import NIDAdminContract from "./contracts/NIDAdmin.json";
 import Home from "./Home";
 import Review from "./Review";
 import Request from "./Request";
+import Trace from "./Trace";
 
 import "./App.css";
 
@@ -75,12 +76,14 @@ const App = () => {
                     <NavLink className={"nav-link"} to="/">组织查询</NavLink>
                     <NavLink className={"nav-link"} to="/request/">组织变更</NavLink>
                     <NavLink className={"nav-link"} to="/review/">组织变更审批</NavLink>
+                    <NavLink className={"nav-link"} to="/trace/">用户身份溯源</NavLink>
                 </Toolbar>
             </AppBar>
 
             <Route path="/" exact render={(props) => <Home {...props} eth={state} />}/>
-            <Route path="/request/" render={(props) => <Request {...props} eth={state} />}/>
+            <Route path="/request/" exact render={(props) => <Request {...props} eth={state} />}/>
             <Route path="/review/" exact render={(props) => <Review {...props} eth={state} />}/>
+            <Route path="/trace/" exact render={(props) => <Trace {...props} eth={state} />}/>
         </div>
         </Router>
     );
