@@ -11,7 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import NIDOrgContract from "./contracts/NIDOrg.json";
 
 import { TIME_INTERVAL } from './Utils';
-import { getInterface, getNIDFromInterface, getTimeFromInterface, decryptByIDEA } from "./Utils";
+import { getBinaryIPv6, getInterface, getNIDFromInterface, getTimeFromInterface, decryptByIDEA } from "./Utils";
+import { ideaEncrypt, ideaDecrypt } from "./IDEA";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -27,6 +28,18 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const Trace = (props) => {
+
+    /*
+    const key = "00010010001101000101011001111000100100001010101100110100010101100101011001111000001000110100010100011001000010000001001000110101";
+    const data = "0001001000110100010101100111100010011000011101100101010000110010";
+    
+    const cipher = ideaEncrypt(data, key);
+    const plain = ideaDecrypt(cipher, key);
+    
+    console.log(cipher);
+    console.log(data === plain);
+    */
+
     const classes = useStyles();
 
     const web3 = props.eth.web3;
@@ -42,20 +55,19 @@ const Trace = (props) => {
     }, []);
 
     const prefixMatched = (ipv6, prefix) => {
-        let n = prefix.length;
-        for (let i = 0; i < n - 2; ++i) {
-            if (ipv6[i] !== prefix[i]) {
+        const binaryIPv6 = getBinaryIPv6(ipv6);
+        const binaryPrefix = getBinaryIPv6(prefix);
+        for (let i = 0; i < 64; ++i) {
+            if (binaryIPv6[i] !== binaryPrefix[i]) {
                 return false;
             }
         }
         return true;
     }
 
-
     const handleSubmit = async (event) => {
         try{
             const encryptedMsg = getInterface(ipv6);
-            console.log(encryptedMsg);
             const orgs = await adminContract.methods.orgQuery().call();
             const orgCnt = await adminContract.methods.orgCount().call();
             let index = -1; 
@@ -84,11 +96,12 @@ const Trace = (props) => {
                 let key = keyLife.key;
                 let effectTime = keyLife.effectTime;
                 let expireTime = keyLife.expireTime;
-                let decryptedMsg = decryptByIDEA(encryptedMsg, key);
+                let decryptedMsg = ideaDecrypt(encryptedMsg, key);
                 let nid = getNIDFromInterface(decryptedMsg);
-                console.log("Key " + key + ", NID: " + nid);
+                // console.log("Key: " + key);
+                // console.log("NID: " + nid);
                 let time = getTimeFromInterface(decryptedMsg);
-                console.log("Key " + key + ", Time: " + time);
+                // console.log("Time: " + time);
                 if (time >= effectTime && time <= expireTime + TIME_INTERVAL) {
                     setNID(nid);
                     break;

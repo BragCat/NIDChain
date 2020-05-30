@@ -21,8 +21,6 @@ export const expandToFullIPv6 = (src) => {
 
 export const getBinaryIPv6 = (ip) => {
     const fullIP = expandToFullIPv6(ip);
-    console.log(fullIP);
-    console.log(fullIP.length);
     let ans = "";
     for (let i = 0; i < fullIP.length; ++i) {
         const part = parseInt(fullIP[i], 16).toString(2);
@@ -35,10 +33,7 @@ export const getBinaryIPv6 = (ip) => {
 }
 
 export const getInterface = (ip) => {
-    console.log(ip);
     const binaryIP = getBinaryIPv6(ip);
-    console.log(binaryIP);
-    console.log(binaryIP.length);
     return binaryIP.substring(64, 128);
 }
 
