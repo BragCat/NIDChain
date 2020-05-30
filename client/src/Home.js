@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import OrgCard from './OrgCard.js';
+import OrgCard from './OrgCard';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -40,7 +40,7 @@ const Home = (props) => {
     }, [])
 
     window.ethereum.on("accountsChanged", function (accounts) {
-        window.location.reload()
+        window.location.reload();
     });
 
     const displayOrgs = () => {
