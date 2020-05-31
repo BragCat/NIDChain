@@ -42,11 +42,11 @@ const Review = (props) => {
                     nidPort: res.nidPort 
                 });
             } 
-            console.log(reqs);
+            console.log("Pending requests: " + reqs);
             setReqs(reqs);
         } catch (error) {
             alert("Call contract requestQuery failed!");
-            console.log(error);
+            console.error(error);
         }
     };
 

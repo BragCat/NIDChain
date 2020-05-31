@@ -8,6 +8,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 
+import EthCrypto from 'eth-crypto';
+
 import NIDOrgContract from "./contracts/NIDOrg.json";
 
 import { TIME_INTERVAL } from './Utils';
@@ -16,7 +18,7 @@ import { ideaEncrypt, ideaDecrypt } from "./IDEA";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2),
         minWidth: 120,
     },
     selectEmpty: {
@@ -24,21 +26,51 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: theme.spacing(2),
+        marginLeft: 0
     },
   }));
 
 const Trace = (props) => {
 
-    /*
-    const key = "00010010001101000101011001111000100100001010101100110100010101100101011001111000001000110100010100011001000010000001001000110101";
-    const data = "0001001000110100010101100111100010011000011101100101010000110010";
-    
-    const cipher = ideaEncrypt(data, key);
-    const plain = ideaDecrypt(cipher, key);
-    
-    console.log(cipher);
-    console.log(data === plain);
-    */
+    const test = async() => {
+        // IDEA algorithm test
+        const key = "00010010001101000101011001111000100100001010101100110100010101100101011001111000001000110100010100011001000010000001001000110101";
+        const data = "0001001000110100010101100111100010011000011101100101010000110010";
+        
+        const cipher = ideaEncrypt(data, key);
+        const plain = ideaDecrypt(cipher, key);
+        
+        console.log("IDEA original text: " + data);
+        console.log("IDEA decrypted text: " + plain);
+        console.assert(plain === data, 
+            "The text decrypted from IDEA cipher doesn't match the original text!");
+
+        // ECC algorithm test
+        const admin = EthCrypto.createIdentity();
+        console.log("ECC public key: " + admin.publicKey);
+        console.log("ECC private key: " + admin.privateKey);
+
+        // Encryption
+        const encryptedKey = await EthCrypto.encryptWithPublicKey(
+            admin.publicKey,
+            JSON.stringify(key)
+        );
+        const encryptedString = EthCrypto.cipher.stringify(encryptedKey);
+        console.log("ECC encrypted text: " + encryptedString);
+        
+        // Decryption
+        const encryptedObject = EthCrypto.cipher.parse(encryptedString);
+        const decryptedKey = await EthCrypto.decryptWithPrivateKey(
+            admin.privateKey,
+            encryptedObject 
+        );
+        const actualKey = JSON.parse(decryptedKey);
+        console.log("ECC original text: " + key);
+        console.log("ECC decrypted text: " + actualKey);
+        console.assert(actualKey === key, 
+            "The text decrypted from ECC cipher doesn't match the original text!");
+    }
+    //test();
 
     const classes = useStyles();
 
@@ -48,7 +80,7 @@ const Trace = (props) => {
 
     const [ ipv6, setIPv6 ] = useState("");
     const [ nid, setNID ] = useState("");
-    const [ pool, setPool ] = useState("");
+    const [ privateKey, setPrivateKey ] = useState("");
 
     useEffect(() => {
         document.title = "NIDChain用户溯源";
@@ -93,15 +125,22 @@ const Trace = (props) => {
             let keyCnt = await orgContract.methods.getKeyHistoryCount().call();
             for (let i = keyCnt - 1; i >= 0; --i) {
                 let keyLife = await orgContract.methods.getNewestKeyLifeByIndex(i).call();
-                let key = keyLife.key;
+                let encryptedString = keyLife.key;
+                console.log("Encrypted IDEA key: " + encryptedString);
+                const encryptedObject = EthCrypto.cipher.parse(encryptedString);
+                const decryptedKey = await EthCrypto.decryptWithPrivateKey(
+                    privateKey,
+                    encryptedObject 
+                );
+                const key = JSON.parse(decryptedKey);
                 let effectTime = keyLife.effectTime;
                 let expireTime = keyLife.expireTime;
                 let decryptedMsg = ideaDecrypt(encryptedMsg, key);
                 let nid = getNIDFromInterface(decryptedMsg);
-                // console.log("Key: " + key);
-                // console.log("NID: " + nid);
+                console.log("Key: " + key);
+                console.log("NID: " + nid);
                 let time = getTimeFromInterface(decryptedMsg);
-                // console.log("Time: " + time);
+                console.log("Time: " + time);
                 if (time >= effectTime && time <= expireTime + TIME_INTERVAL) {
                     setNID(nid);
                     break;
@@ -128,7 +167,16 @@ const Trace = (props) => {
                 onChange={(e) => {setIPv6(e.target.value)}}
             >
             </TextField>
+            <TextField 
+                required
+                label="审计私钥"
+                value={privateKey} 
+                onChange={(e) => {setPrivateKey(e.target.value)}}
+            >
+            </TextField>
             </FormControl>
+            </div>
+            <div>
             <Button 
                 className={classes.button}
                 onClick={handleSubmit} 

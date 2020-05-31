@@ -89,7 +89,6 @@ const RequestCard = (props) => {
 
     const submitApprove = async () => {
         try {
-            console.log(id);
             const tx = await contract.methods.requestApprove(
                 id
             ).send({
