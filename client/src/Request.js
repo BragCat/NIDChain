@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: theme.spacing(2),
+        marginLeft: 0
     },
   }));
 
@@ -45,14 +46,14 @@ const Request = (props) => {
         try{
             const typeValue = parseInt(type);       
             const nidPortValue = parseInt(nidPort);
-            console.log(typeValue)
-            console.log(name);
-            console.log(admin);
-            console.log(phone);
-            console.log(mail);
-            console.log(nidAddr);
-            console.log(nidPortValue);
-            console.log(pool);
+            console.log("Request type: " + typeValue);
+            console.log("Organization name: " + name);
+            console.log("Admin name: " + admin);
+            console.log("Admin phone number: " + phone);
+            console.log("Admin email address: " + mail);
+            console.log("NID server address: " + nidAddr);
+            console.log("NID port number: " + nidPortValue);
+            console.log("NIDTGA address pool: " + pool);
             const tx = await contract.methods.createOrgRequest(
                 typeValue, 
                 name, 

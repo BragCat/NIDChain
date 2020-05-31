@@ -26,11 +26,11 @@ const Home = (props) => {
     const init = async () => {
         try {
             const orgs = await contract.methods.orgQuery().call();
-            console.log(orgs);
+            console.log("Registered organization contracts: " + orgs);
             setOrgs(orgs);
         } catch (error) {
             alert("Call contract orgQuery failed!");
-            console.log(error);
+            console.error(error);
         }
     };
     

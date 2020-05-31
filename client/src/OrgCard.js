@@ -22,6 +22,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TextField from '@material-ui/core/TextField';
+import EthCrypto from 'eth-crypto';
 
 import NIDOrgContract from "./contracts/NIDOrg.json";
 import Web3 from 'web3';
@@ -58,6 +59,7 @@ const useStyles = makeStyles(theme => ({
 const OrgCard = (props) => {
     const web3 = props.eth.web3;
     const accounts = props.eth.accounts;
+    const adminContract = props.eth.contract;
 
     const [ contract, setContract ] = useState(null);
     const [ org, setOrg ] = useState(props.org);
@@ -131,12 +133,20 @@ const OrgCard = (props) => {
 
     const submitUpdate = async () => {
         try {
+            const publicKey = await adminContract.methods.auditKey().call();
+            console.log("Audit public key: " + publicKey);
+            const encryptedKey = await EthCrypto.encryptWithPublicKey(
+                publicKey, 
+                JSON.stringify(key)
+            );
+            const encryptedString = EthCrypto.cipher.stringify(encryptedKey);
+            console.log("Encrypted key: " + encryptedString);
+
             const t = new Date();
             const effectTime = Math.round(t.getTime() / 1000);
-            console.log(key);
-            console.log(effectTime);
+            console.log("Key effect time: " + effectTime);
             await contract.methods.updateKey(
-                key,
+                encryptedString,
                 effectTime
             ).send({
                 from: accounts[0]

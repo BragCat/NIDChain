@@ -13,6 +13,7 @@ import Home from "./Home";
 import Review from "./Review";
 import Request from "./Request";
 import Trace from "./Trace";
+import KeyUpdate from "./KeyUpdate";
 
 import "./App.css";
 
@@ -31,8 +32,6 @@ const App = () => {
 
             // Use web3 to get the user's accounts.
             const accounts = await web3.eth.getAccounts();
-
-            //console.log(accounts[0]);
 
             // Get the contract instance.
             const networkId = await web3.eth.net.getId();
@@ -77,6 +76,7 @@ const App = () => {
                     <NavLink className={"nav-link"} to="/request/">组织变更</NavLink>
                     <NavLink className={"nav-link"} to="/review/">组织变更审批</NavLink>
                     <NavLink className={"nav-link"} to="/trace/">用户身份溯源</NavLink>
+                    <NavLink className={"nav-link"} to="/key/">审计公钥更新</NavLink>
                 </Toolbar>
             </AppBar>
 
@@ -84,6 +84,7 @@ const App = () => {
             <Route path="/request/" exact render={(props) => <Request {...props} eth={state} />}/>
             <Route path="/review/" exact render={(props) => <Review {...props} eth={state} />}/>
             <Route path="/trace/" exact render={(props) => <Trace {...props} eth={state} />}/>
+            <Route path="/key/" exact render={(props) => <KeyUpdate {...props} eth={state} />}/>
         </div>
         </Router>
     );

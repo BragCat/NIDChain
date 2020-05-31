@@ -20,6 +20,8 @@ contract NIDAdmin is Ownable {
         string pool;
     }
 
+    string public auditKey;
+
     OrgRequest[] private _reqs;
     NIDOrg[] private _orgs;
 
@@ -30,6 +32,7 @@ contract NIDAdmin is Ownable {
     event OrgCreated(NIDOrg indexed org, address indexed account);
     event OrgUpdated(NIDOrg indexed org, address indexed account);
     event OrgDeleted(NIDOrg indexed org, address indexed account);
+    event AuditKeyUpdated(string indexed key, address indexed account);
 
     constructor() public {
         _transferOwnership(msg.sender);
@@ -55,9 +58,7 @@ contract NIDAdmin is Ownable {
     )
         public
     {
-        bytes20 id = toBytes(msg.sender);
-        OrgRequest memory req = OrgRequest(
-            msg.sender,
+        bytes20 id = toBytes(msg.sender); OrgRequest memory req = OrgRequest( msg.sender,
             id,
             _reqType,
             _name,
@@ -207,5 +208,10 @@ contract NIDAdmin is Ownable {
         OrgRequest memory req = _reqs[index];
         removeFromReqs(index);
         emit OrgRequestRejected(req.reqType, req.name, req.owner);
+    }
+
+    function updateAuditKey(string memory key) public onlyOwner {
+        auditKey = key;
+        emit AuditKeyUpdated(key, msg.sender);
     }
 }
