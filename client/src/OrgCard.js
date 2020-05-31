@@ -133,25 +133,38 @@ const OrgCard = (props) => {
 
     const submitUpdate = async () => {
         try {
+            if (key.length != 32) {
+                alert("Please upload the IDEA key in 32 digits in hexadecimal format!");
+                return;
+            }
+            let binaryKey = "";
+            for (let i = 0; i < 32; ++i) {
+                const part = parseInt(key[i], 16).toString(2);
+                for (let j = 0; j < 4 - part.length; ++j) {
+                    binaryKey += "0";
+                }
+                binaryKey += part;
+            }
             const publicKey = await adminContract.methods.auditKey().call();
             console.log("Audit public key: " + publicKey);
+            console.log("Plain IDEA key: " + binaryKey);
             const encryptedKey = await EthCrypto.encryptWithPublicKey(
                 publicKey, 
-                JSON.stringify(key)
+                JSON.stringify(binaryKey)
             );
             const encryptedString = EthCrypto.cipher.stringify(encryptedKey);
-            console.log("Encrypted key: " + encryptedString);
+            console.log("Encrypted IDEA key: " + encryptedString);
 
             const t = new Date();
             const effectTime = Math.round(t.getTime() / 1000);
-            console.log("Key effect time: " + effectTime);
+            console.log("IDEA key effect time: " + effectTime);
             await contract.methods.updateKey(
                 encryptedString,
                 effectTime
             ).send({
                 from: accounts[0]
             });
-            alert("Update key succeeded!");
+            alert("Update IDEA key succeeded!");
             setOpen(false);
             window.location.reload();
         } catch (error) {
@@ -179,7 +192,7 @@ const OrgCard = (props) => {
                         <FormControl className={classes.formControl}>
                         <TextField 
                             required
-                            label="IDEA密钥"
+                            label="新的IDEA密钥（十六进制表示）"
                             value={key} 
                             onChange={(e) => {setKey(e.target.value)}}
                         />

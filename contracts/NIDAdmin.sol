@@ -21,6 +21,7 @@ contract NIDAdmin is Ownable {
     }
 
     string public auditKey;
+    bool public auditKeySet;
 
     OrgRequest[] private _reqs;
     NIDOrg[] private _orgs;
@@ -36,6 +37,7 @@ contract NIDAdmin is Ownable {
 
     constructor() public {
         _transferOwnership(msg.sender);
+        auditKeySet = false;
     }
 
     function toBytes(address x) public pure returns (bytes20) {
@@ -210,8 +212,10 @@ contract NIDAdmin is Ownable {
         emit OrgRequestRejected(req.reqType, req.name, req.owner);
     }
 
-    function updateAuditKey(string memory key) public onlyOwner {
+    function setAuditKey(string memory key) public onlyOwner {
+        require(!auditKeySet, "The audit key has already been set.");
         auditKey = key;
+        auditKeySet = true;
         emit AuditKeyUpdated(key, msg.sender);
     }
 }

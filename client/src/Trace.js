@@ -123,6 +123,7 @@ const Trace = (props) => {
                 orgs[index]
             );
             let keyCnt = await orgContract.methods.getKeyHistoryCount().call();
+            let succeeded = false;
             for (let i = keyCnt - 1; i >= 0; --i) {
                 let keyLife = await orgContract.methods.getNewestKeyLifeByIndex(i).call();
                 let encryptedString = keyLife.key;
@@ -142,9 +143,13 @@ const Trace = (props) => {
                 let time = getTimeFromInterface(decryptedMsg);
                 console.log("Time: " + time);
                 if (time >= effectTime && time <= expireTime + TIME_INTERVAL) {
+                    succeeded = true;
                     setNID(nid);
                     break;
                 }
+            }
+            if (!succeeded) {
+                alert("Can't trace user's NID. Please check the IPv6 and the private key!");
             }
         } catch (error) {
             console.error(error);
@@ -169,7 +174,7 @@ const Trace = (props) => {
             </TextField>
             <TextField 
                 required
-                label="审计私钥"
+                label="审计私钥（十六进制表示）"
                 value={privateKey} 
                 onChange={(e) => {setPrivateKey(e.target.value)}}
             >
